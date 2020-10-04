@@ -1,0 +1,60 @@
+.login{
+    &-wrapper{
+        background-color:$background-color;
+        width:100%;
+        height:100vh;
+    }
+
+    &-container{
+        height:300px;
+        width:600px;
+        background-color:white;
+        position:absolute;
+        top:50%;
+        margin-top:-250px;
+        left:50%;
+        margin-left:-300px;
+        box-shadow: 0 0 10px $background-color-dark;
+    }
+
+    &-title{
+        color:$background-color;
+        text-align:center;
+        padding-top:50px;
+        padding-bottom:20px;
+    }
+
+    &-linkedin-btn{
+        position:relative;
+        margin:auto;
+        display:block;
+        border:solid 1px $light-grey;
+        border-radius:5px;
+        width:300px;
+        text-decoration: none;
+
+        &:hover{
+            background-color: $light-grey;
+        }
+
+        &-icon{
+            display:inline-block;
+            vertical-align: top;
+            
+            img{
+                padding-top:10px;
+                width:30px;
+                padding-left:10px;
+                padding-bottom:5px;
+            }
+        }
+
+        &-text{
+            display:inline-block;
+            vertical-align: top;
+            color:#444;
+            line-height:50px;
+            padding-left:20px;
+        }
+    }
+}

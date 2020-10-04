@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to myclause.com</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}" />
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login-container">
+            <h1 class="login-title">MY CLAUSE</h1>
+            <a class="login-linkedin-btn" href="{{ url_for('linkedin.login') }}">
+                <div class="login-linkedin-btn-icon">
+                    <img src="{{ url_for('static', filename='images/linkedin.png')}}" alt="linkedin-icon" />
+                </div>
+                <div class="login-linkedin-btn-text">
+                    Login with Linkedin
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
