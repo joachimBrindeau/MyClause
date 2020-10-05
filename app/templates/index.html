@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyClause.com</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}" />
+</head>
+<body>
+    <div class="site-body">
+        <div class="search-bar">
+            <div class="search-bar-input-wrapper">
+                <div class="search-bar-input">
+                    <input type="text" placeholder="Find your clause..." class="search-bar-input--input">
+                </div>
+                <div class="search-bar-btn">
+
+                </div>
+                <div class="search-bar-filter">
+                    <input type="checkbox" id="activate-own-search" class="checkbox-filter" checked>
+                    <label for="activate-own-search">Only look in own clauses</label>
+                    <input type="checkbox" id="activate-own-search" class="checkbox-filter" checked>
+                    <label for="activate-own-search">Work in private storage (this will keep your clauses private)</label>
+                </div>
+            </div>
+           
+        </div>
+        <div class="result-body">
+            <div class="result-body-title">
+                <label class="result-body-label" for="title">
+                    Title
+                </label>
+                <input id="title" class="result-body-title--input" type="text">
+            </div>
+            <div class="result-body-text">
+                <label class="result-body-label" for="text">
+                    Text
+                </label>
+                <textarea  class="result-body-text--input" id="text"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="site-sidebar">
+        <div class="site-sidebar-filters">
+
+        </div>
+        <div class="site-sidebar-buttons">
+            <div class="site-sidebar-buttons-btn">
+                <div class="site-sidebar-buttons-btn--icon">
+                    <img height="25px" src="{{url_for('static',filename='images/plus-circle-outline.svg')}}" class="sidebar-icon" />
+                </div>
+                <span class="site-sidebar-buttons-btn--text">Save as new</span>
+            </div>
+            <div class="site-sidebar-buttons-btn">
+                <div class="site-sidebar-buttons-btn--icon">
+                    <img height="25px" src="{{url_for('static',filename='images/save-outline.svg')}}" class="sidebar-icon" />
+                </div>
+                <span class="site-sidebar-buttons-btn--text">Save</span>
+            </div>
+            <div class="site-sidebar-buttons-btn">
+                <div class="site-sidebar-buttons-btn--icon">
+                    <img height="25px" src="{{url_for('static',filename='images/close-circle-outline.svg')}}" class="sidebar-icon" />
+                </div>
+                <span class="site-sidebar-buttons-btn--text">Delete</span>
+            </div>
+            <div class="site-sidebar-buttons-btn">
+                <div class="site-sidebar-buttons-btn--icon">
+                    <img height="25px" src="{{url_for('static',filename='images/log-out-outline.svg')}}" class="sidebar-icon" />
+                </div>
+                <span class="site-sidebar-buttons-btn--text">Logout</span>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

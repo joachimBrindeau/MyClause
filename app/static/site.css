@@ -5,7 +5,7 @@ body {
   font-family: 'Roboto', sans-serif; }
 
 .login-wrapper {
-  background-color: #1C2541;
+  background-color: white;
   width: 100%;
   height: 100vh; }
 
@@ -18,13 +18,18 @@ body {
   margin-top: -250px;
   left: 50%;
   margin-left: -300px;
-  box-shadow: 0 0 10px #0B132B; }
+  box-shadow: 0 0 10px #eee; }
 
 .login-title {
   color: #1C2541;
   text-align: center;
-  padding-top: 50px;
-  padding-bottom: 20px; }
+  padding-top: 50px; }
+
+.login-subtitle {
+  text-align: center;
+  padding-bottom: 20px;
+  color: #999;
+  font-weight: 400; }
 
 .login-linkedin-btn {
   position: relative;
@@ -49,4 +54,101 @@ body {
     vertical-align: top;
     color: #444;
     line-height: 50px;
-    padding-left: 20px; }
+    padding-left: 50px;
+    text-align: center; }
+
+.site-sidebar {
+  display: inline-block;
+  vertical-align: top;
+  width: 400px;
+  background-color: #1C2541;
+  height: 100vh;
+  position: relative;
+  box-sizing: border-box; }
+  .site-sidebar-buttons {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    color: white;
+    padding-bottom: 20px; }
+    .site-sidebar-buttons-btn {
+      box-sizing: border-box;
+      height: 50px;
+      line-height: 50px;
+      width: 300px;
+      margin-left: 50px;
+      border: solid 1px #62929E;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      cursor: pointer; }
+      .site-sidebar-buttons-btn .sidebar-icon {
+        margin-left: 25px;
+        height: 25px;
+        padding-top: 12px;
+        filter: invert(100%) sepia(96%) saturate(17%) hue-rotate(266deg) brightness(106%) contrast(105%); }
+      .site-sidebar-buttons-btn:hover {
+        background-color: #62929E;
+        color: #1C2541; }
+        .site-sidebar-buttons-btn:hover .sidebar-icon {
+          filter: invert(9%) sepia(11%) saturate(7383%) hue-rotate(204deg) brightness(92%) contrast(87%); }
+      .site-sidebar-buttons-btn--icon {
+        width: 50px;
+        display: inline-block;
+        height: 50px; }
+      .site-sidebar-buttons-btn--text {
+        display: inline-block;
+        padding-left: 10px;
+        vertical-align: top; }
+
+.site-body {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(100% - 404px); }
+  .site-body .search-bar {
+    width: 100%;
+    border-bottom: solid 1px #eee;
+    height: 100px; }
+    .site-body .search-bar-input-wrapper {
+      width: 90%;
+      margin: auto;
+      border: solid 1px #eee;
+      border-radius: 5px;
+      margin-top: 15px;
+      height: 50px; }
+    .site-body .search-bar-filter {
+      color: #1C2541;
+      padding: 15px 0px; }
+      .site-body .search-bar-filter .checkbox-filter {
+        vertical-align: bottom; }
+    .site-body .search-bar-input {
+      width: calc(100% - 80px); }
+      .site-body .search-bar-input--input {
+        border: none;
+        height: 48px;
+        padding-left: 20px;
+        font-size: 24px;
+        width: 100%; }
+  .site-body .result-body {
+    width: 90%;
+    margin: auto;
+    padding-top: 50px; }
+    .site-body .result-body-label {
+      display: block;
+      padding-bottom: 10px; }
+    .site-body .result-body-title--input {
+      width: 100%;
+      border: solid 1px #eee;
+      height: 50px;
+      margin-bottom: 50px;
+      border-radius: 5px;
+      padding-left: 20px;
+      font-size: 24px; }
+    .site-body .result-body-text--input {
+      width: 100%;
+      border: solid 1px #eee;
+      border-radius: 5px;
+      height: calc(100vh - 400px);
+      min-height: 200px;
+      padding: 20px;
+      font-size: 14px; }
