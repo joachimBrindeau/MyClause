@@ -92,7 +92,7 @@
             }
 
             &-input{
-                width:calc(100% - 80px);
+                width:calc(100% - 40px);
 
 
                 &--input{
@@ -126,6 +126,7 @@
                     border-radius:5px;
                     padding-left:20px;
                     font-size:24px;
+                    box-sizing: border-box;
                 }
             }
 
@@ -139,6 +140,7 @@
                     min-height:200px;
                     padding:20px;
                     font-size:14px;
+                    box-sizing: border-box;
                 }
             }
         }
