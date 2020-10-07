@@ -11,15 +11,23 @@
         <div class="search-bar">
             <div class="search-bar-input-wrapper">
                 <div class="search-bar-input">
-                    <input type="text" placeholder="Find your clause..." class="search-bar-input--input">
+                    <input type="text" placeholder="Find your clause..." class="search-bar-input--input" id="search-input">
+                    <div class="search-bar-results-wrapper" id="result-list">
+                        <div class="search-bar-loading" id="search-loader">
+                            <img src="{{ url_for('static', filename='images/loading.svg')}}" />
+                        </div>
+                        <div class="search-bar-results" id="result-container">
+                        </div>
+                    </div>
                 </div>
+                <div class="search-bar-overlay" id="search-overlay"></div>
                 <div class="search-bar-btn">
 
                 </div>
                 <div class="search-bar-filter">
                     <input type="checkbox" id="activate-own-search" class="checkbox-filter" checked>
                     <label for="activate-own-search">Only look in own clauses</label>
-                    <input type="checkbox" id="activate-own-search" class="checkbox-filter" checked>
+                    <input type="checkbox" class="checkbox-filter" id="private-repo-check" checked>
                     <label for="activate-own-search">Work in private mode (this will save your clauses in a private place)</label>
                 </div>
             </div>
@@ -72,5 +80,6 @@
 
         </div>
     </div>
+    <script src="{{ url_for('static', filename='js/site.js') }}"></script>
 </body>
 </html>

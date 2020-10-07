@@ -78,7 +78,7 @@ body {
       line-height: 50px;
       width: 300px;
       margin-left: 50px;
-      border: solid 1px #62929E;
+      border: solid 1px #fcaf17;
       border-radius: 5px;
       margin-bottom: 20px;
       cursor: pointer; }
@@ -88,7 +88,7 @@ body {
         padding-top: 12px;
         filter: invert(100%) sepia(96%) saturate(17%) hue-rotate(266deg) brightness(106%) contrast(105%); }
       .site-sidebar-buttons-btn:hover {
-        background-color: #62929E;
+        background-color: #fcaf17;
         color: #1C2541; }
         .site-sidebar-buttons-btn:hover .sidebar-icon {
           filter: invert(9%) sepia(11%) saturate(7383%) hue-rotate(204deg) brightness(92%) contrast(87%); }
@@ -108,27 +108,64 @@ body {
   .site-body .search-bar {
     width: 100%;
     border-bottom: solid 1px #eee;
-    height: 100px; }
+    height: 100px;
+    position: relative; }
     .site-body .search-bar-input-wrapper {
       width: 90%;
       margin: auto;
-      border: solid 1px #eee;
       border-radius: 5px;
       margin-top: 15px;
-      height: 50px; }
+      height: 52px; }
+    .site-body .search-bar-loading {
+      text-align: center;
+      display: none; }
+      .site-body .search-bar-loading.visible {
+        display: block; }
+    .site-body .search-bar-results {
+      display: none; }
+      .site-body .search-bar-results-wrapper {
+        position: absolute;
+        top: 50px;
+        width: 100%;
+        background-color: white;
+        padding: 10px;
+        padding-right: 11px;
+        display: none; }
+        .site-body .search-bar-results-wrapper.visible {
+          display: block; }
+      .site-body .search-bar-results.visible {
+        display: block; }
+    .site-body .search-bar-overlay {
+      background-color: rgba(0, 0, 0, 0.4);
+      height: 100vh;
+      top: -15px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      padding-right: 10px;
+      display: none; }
+      .site-body .search-bar-overlay.visible {
+        display: block; }
     .site-body .search-bar-filter {
       color: #1C2541;
       padding: 15px 0px; }
       .site-body .search-bar-filter .checkbox-filter {
         vertical-align: bottom; }
     .site-body .search-bar-input {
-      width: calc(100% - 40px); }
+      width: calc(100% - 40px);
+      z-index: 999;
+      position: relative;
+      width: 100%;
+      border-radius: 8px; }
       .site-body .search-bar-input--input {
         border: none;
         height: 48px;
         padding-left: 20px;
         font-size: 24px;
-        width: 100%; }
+        width: 100%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border: solid 1px #eee; }
   .site-body .result-body {
     width: 90%;
     margin: auto;

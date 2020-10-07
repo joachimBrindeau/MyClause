@@ -62,3 +62,14 @@ def protected_route(func):
         
         return func(*args, **kwargs)
     return inner
+
+
+def protected_api_endpoint(func):
+    @wraps(func)
+    def inner(*args,**kwargs):
+
+        if not linkedin.authorized:
+            return "forbidden", 403
+        
+        return func(*args, **kwargs)
+    return inner

@@ -27,3 +27,8 @@ app.register_blueprint(bp)
 
 # import db models for migrations
 from .db import models
+
+import flask_whooshalchemy
+@app.before_first_request
+def initiate_index():
+    flask_whooshalchemy.search_index(app, models.Clause)
