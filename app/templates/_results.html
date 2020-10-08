@@ -1,5 +1,8 @@
 {% for result in results %}
-<div>
-    test
+<div class="search-bar-results-result" data-id="{{ result.id }}">
+    <div class="search-bar-results-result--title">{{ result.title|capitalize }}</div>
+    <div class="search-bar-results-result--text">
+        {{ result.text }}
+    </div>
 </div>
 {% endfor %}

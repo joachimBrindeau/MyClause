@@ -34,6 +34,7 @@
            
         </div>
         <div class="result-body">
+            <div style="display:none;"><input type="text" id="clause-id"></div>
             <div class="result-body-title">
                 <label class="result-body-label" for="title">
                     Title
@@ -53,25 +54,25 @@
 
         </div>
         <div class="site-sidebar-buttons">
-            <div class="site-sidebar-buttons-btn">
+            <div class="site-sidebar-buttons-btn" id="save-as-new">
                 <div class="site-sidebar-buttons-btn--icon">
                     <img height="25px" src="{{url_for('static',filename='images/plus-circle-outline.svg')}}" class="sidebar-icon" />
                 </div>
                 <span class="site-sidebar-buttons-btn--text">Save as new</span>
             </div>
-            <div class="site-sidebar-buttons-btn">
+            <div class="site-sidebar-buttons-btn" id="save-existing">
                 <div class="site-sidebar-buttons-btn--icon">
                     <img height="25px" src="{{url_for('static',filename='images/save-outline.svg')}}" class="sidebar-icon" />
                 </div>
                 <span class="site-sidebar-buttons-btn--text">Save</span>
             </div>
-            <div class="site-sidebar-buttons-btn">
+            <div class="site-sidebar-buttons-btn" id="delete">
                 <div class="site-sidebar-buttons-btn--icon">
                     <img height="25px" src="{{url_for('static',filename='images/close-circle-outline.svg')}}" class="sidebar-icon" />
                 </div>
                 <span class="site-sidebar-buttons-btn--text">Delete</span>
             </div>
-            <div class="site-sidebar-buttons-btn">
+            <div class="site-sidebar-buttons-btn" id="logout">
                 <div class="site-sidebar-buttons-btn--icon">
                     <img height="25px" src="{{url_for('static',filename='images/log-out-outline.svg')}}" class="sidebar-icon" />
                 </div>

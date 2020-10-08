@@ -49,23 +49,35 @@ def save():
     clause_id = request.form.get('clauseId', None)
     title = request.form.get('clauseTitle', None)
     text = request.form.get('clauseText', None)
-    private = request.form.get('clausePrivate', None)
+    private = request.form.get('clausePrivate', False)
 
-    result = clause_repository.save_clause(clause_id, title, text, private)
+    result = clause_repository.save_clause(clause_id, title, text, private != False, user_id)
 
     return jsonify({'success':result[0], 'message':result[1]})
 
-@bp.route('/api/delete')
+@bp.route('/api/delete/<id>')
 @protected_api_endpoint
-def delete():
+def delete(id):
     # user_id
     user_id = session['user_id']
 
-    clause_id = request.args.get('clauseId', None)
-
-    result = clause_repository.delete_clause(clause_id, user_id)
+    result = clause_repository.delete_clause(id, user_id)
 
     return jsonify({'success':result[0], 'message':result[1]})
+
+
+@bp.route('/api/clause/<id>')
+@protected_api_endpoint
+def fetch_clause(id):
+    # user_id
+    user_id = session['user_id']
+
+    result = clause_repository.get_clause(id)
+
+    if(result == None):
+        return jsonify({'success':False})
+
+    return jsonify({'success':True, 'id':result.clause_id, 'title':result.clause_title, 'text':result.clause_text})
 
 @bp.route('/login')
 def login():

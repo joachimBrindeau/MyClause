@@ -20,7 +20,15 @@ class ClauseRepository:
         return intermediate_query.limit(20).all()
 
 
+    def get_clause(self, clause_id):
+
+        return Clause.query.filter_by(clause_id = clause_id).first()
+
+
     def save_clause(self, clause_id, title, text, private, user_id):
+
+        if title == None or text == None:
+            return (False, "No title or text..")
 
         # check wheter it's a new one or not.
         if clause_id != None:

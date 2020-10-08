@@ -99,8 +99,7 @@
                     top:50px;
                     width:100%;
                     background-color:white;
-                    padding:10px;
-                    padding-right:11px;
+                    padding:0 11px 10px 12px;
                     display:none;
 
                     &.visible{
@@ -110,6 +109,20 @@
 
                 &.visible{
                     display:block;
+                }
+
+                &-result{
+                    padding:10px 10px 10px 10px;
+                    cursor:pointer;
+
+                    &:hover{
+                        background-color: $light-grey;
+                    }
+
+                    &--title{
+                        font-weight:500;
+                        padding-bottom:5px;
+                    }
                 }
             }
 

@@ -6,6 +6,15 @@ window.onload = function(){
     const loader = document.getElementById('search-loader');
     const resultContainer = document.getElementById('result-container');
 
+    const clauseIdField = document.getElementById('clause-id');
+    const clauseTitleField = document.getElementById('title');
+    const clauseTextField = document.getElementById('text');
+
+    const saveAsNewBtn = document.getElementById('save-as-new');
+    const saveBtn = document.getElementById('save-existing');
+    const deleteBtn = document.getElementById('delete');
+    const logoutBtn = document.getElementById('logout');
+
     // Checkboxes
     const privateClauses = document.getElementById('activate-own-search');
     const privateMode = document.getElementById('private-repo-check');
@@ -34,9 +43,40 @@ window.onload = function(){
         resultContainer.classList.remove('visible');
     }
 
+    // Binds result click to fetching information
+    function bindSearchResults(){
+        const results = document.getElementsByClassName('search-bar-results-result');
+
+        for(let i = 0; i < results.length; i++){
+            results[i].addEventListener('click', (ev) => {
+                const targ = ev.currentTarget;
+                const attr = targ.getAttribute('data-id')
+                
+                // Fetch the result and hide
+                fetch(`api/clause/${attr}`)
+                    .then(data => data.json())
+                    .then(data => {
+                        if(data['success']){
+                            clauseIdField.value = data["id"]
+                            clauseTitleField.value = data["title"]
+                            clauseTextField.value = data["text"]
+                        }
+                    })
+                    .then(deactivateSearch())
+                    .catch(() => {
+                        alert('Something went wrong');
+                        deactivateSearch();
+                    })
+            })
+        }
+    }
+
     // Fill results, re-bind click events
     function finishLoading(results){
         resultContainer.innerHTML = results;
+        
+        bindSearchResults();
+        
         loader.classList.remove('visible')
         resultContainer.classList.add('visible')
     }
@@ -46,6 +86,16 @@ window.onload = function(){
         resultList.classList.remove('visible')
     }
 
+    function deactivateSearch(){
+        hideResults();
+        overlay.classList.remove('visible');
+    }
+
+    function clearFields(){
+        clauseIdField.value = '';
+        clauseTitleField.value = '';
+        clauseTextField.value = '';
+    }
 
     var inputDebounce = debounce(() => {
 
@@ -66,6 +116,8 @@ window.onload = function(){
             .then(data => {
                 if(data.count > 0){
                     finishLoading(data["result"])
+                }else{
+                    finishLoading("Nothing found..")
                 }
             }).catch((reason) => {
                 finishLoading([])
@@ -79,9 +131,63 @@ window.onload = function(){
         overlay.classList.add('visible');
     })
 
-    overlay.addEventListener('click', () => {
-        hideResults();
-        overlay.classList.remove('visible');
+    overlay.addEventListener('click', deactivateSearch)
+
+    logoutBtn.addEventListener('click', () => {
+        window.location.href = "/logout";
+    })
+
+    deleteBtn.addEventListener('click', () => {
+        const val = clauseIdField.value
+        if (val){
+            fetch(`/api/delete/${val}`)
+                .then(data => data.json())
+                .then(data => {
+                    if(data.message != ''){
+                        alert(data.message);
+                    }else{
+                        alert('Succesfully deleted clause.')
+                    }
+                    clearFields();
+                })
+        }else{
+            alert('Select a clause first.');
+        }
+    })
+
+    saveAsNewBtn.addEventListener('click', () => {
+        fetch('/api/save', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `clauseTitle=${clauseTitleField.value}&clauseText=${clauseTextField.value}${privateMode.checked?"&clausePrivate=true":""}`
+        }).then((data) => data.json())
+        .then(data => {
+            if(data.success){
+                alert("Successfully saved!")
+            }else{
+                alert(data.message)
+            }
+        })
+    })
+
+    saveBtn.addEventListener('click', () => {
+        fetch('/api/save', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `clauseId=${clauseIdField.value}&clauseTitle=${clauseTitleField.value}&clauseText=${clauseTextField.value}${privateMode.checked?"&clausePrivate=true":""}`
+        })
+        .then((data) => data.json())
+        .then(data => {
+            if(data.success){
+                alert("Successfully saved!")
+            }else{
+                alert(data.message)
+            }
+        })
     })
 }
 
