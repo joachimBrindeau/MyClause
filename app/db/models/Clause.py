@@ -17,7 +17,7 @@ class Clause(db.Model):
 
     clause_id = db.Column(db.Integer, primary_key=True)
     clause_title = db.Column(db.String(720)) 
-    clause_text = db.Column(db.UnicodeText)
+    clause_text = db.Column(db.String)
     # combination of title and text for search
     clause_user = db.Column(db.Integer, ForeignKey('user.user_id'))
     clause_private = db.Column(db.Boolean)

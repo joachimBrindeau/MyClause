@@ -10,7 +10,8 @@ class ClauseRepository:
 
     def query_clauses(self, query, user_id, private_only):
         
-        intermediate_query = Clause.query.search(query)
+        # whoosh prefix by default, people don't want to type * after every query.
+        intermediate_query = Clause.query.search("{}*".format(query))
 
         if private_only:
             intermediate_query = intermediate_query.filter(Clause.clause_user == user_id)

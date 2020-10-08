@@ -28,9 +28,6 @@ app.register_blueprint(bp)
 # import db models for migrations
 from .db import models
 
-sqldb.create_all()
-sqldb.session.commit()
-
 import flask_whooshalchemy
 @app.before_first_request
 def initiate_index():
