@@ -2,7 +2,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  width: 100%; }
 
 .login-wrapper {
   background-color: white;
@@ -65,6 +67,17 @@ body {
   height: 100vh;
   position: relative;
   box-sizing: border-box; }
+  .site-sidebar-filters {
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 300px;
+    margin-left: 50px;
+    padding-bottom: 30px; }
+    .site-sidebar-filters label {
+      bottom: 12px;
+      position: relative;
+      padding-left: 10px; }
   .site-sidebar-buttons {
     position: absolute;
     bottom: 0;
@@ -104,17 +117,30 @@ body {
 .site-body {
   display: inline-block;
   vertical-align: top;
-  width: calc(100% - 404px); }
+  flex-grow: 2;
+  box-sizing: border-box; }
   .site-body .search-bar {
     width: 100%;
     border-bottom: solid 1px #eee;
-    height: 100px;
-    position: relative; }
+    height: 70px;
+    position: relative;
+    background-color: #1C2541;
+    padding-top: 15px; }
+    .site-body .search-bar-and-filter-wrapper {
+      display: flex; }
+      .site-body .search-bar-and-filter-wrapper input.switch {
+        width: 50px;
+        margin: 10px 10px 0px 40px; }
+      .site-body .search-bar-and-filter-wrapper label {
+        color: white;
+        width: 200px;
+        padding-top: 15px;
+        text-transform: uppercase;
+        font-weight: bold; }
     .site-body .search-bar-input-wrapper {
       width: 90%;
       margin: auto;
       border-radius: 5px;
-      margin-top: 15px;
       height: 52px; }
     .site-body .search-bar-loading {
       text-align: center;
@@ -145,7 +171,7 @@ body {
     .site-body .search-bar-overlay {
       background-color: rgba(0, 0, 0, 0.4);
       height: 100vh;
-      top: -15px;
+      top: 0px;
       left: 0;
       position: absolute;
       width: 100%;
@@ -198,3 +224,38 @@ body {
       padding: 20px;
       font-size: 14px;
       box-sizing: border-box; }
+
+input.switch {
+  position: relative;
+  appearance: none;
+  outline: none;
+  width: 50px;
+  height: 30px;
+  background-color: #ffffff;
+  border: 1px solid #D9DADC;
+  border-radius: 50px;
+  box-shadow: inset -20px 0 0 0 #ffffff;
+  transition-duration: 200ms; }
+
+input.switch:after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 26px;
+  height: 26px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); }
+
+input.switch:checked {
+  border-color: #4ED164;
+  box-shadow: inset 20px 0 0 0 #4ED164; }
+
+input.switch-orange:checked {
+  border-color: #fcaf17 !important;
+  box-shadow: inset 20px 0 0 0 #fcaf17 !important; }
+
+input.switch:checked:after {
+  left: 20px;
+  box-shadow: -2px 4px 3px rgba(0, 0, 0, 0.05); }

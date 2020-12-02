@@ -11,27 +11,28 @@
         <div class="search-bar">
             <div class="search-bar-input-wrapper">
                 <div class="search-bar-input">
-                    <input type="text" placeholder="Find your clause..." class="search-bar-input--input" id="search-input">
-                    <div class="search-bar-results-wrapper" id="result-list">
-                        <div class="search-bar-loading" id="search-loader">
-                            <img src="{{ url_for('static', filename='images/loading.svg')}}" />
+                    <div class="search-bar-and-filter-wrapper">
+                        <div style="flex-grow:2;position:relative">
+                            <input type="text" placeholder="Find your clause..." class="search-bar-input--input" id="search-input">
+                            <div class="search-bar-results-wrapper" id="result-list">
+                                <div class="search-bar-loading" id="search-loader">
+                                    <img src="{{ url_for('static', filename='images/loading.svg')}}" />
+                                </div>
+                                <div class="search-bar-results" id="result-container">
+                                </div>
+                            </div>
                         </div>
-                        <div class="search-bar-results" id="result-container">
-                        </div>
+                        <input type="checkbox" id="activate-own-search" class="checkbox-filter switch" checked>
+                        <label for="activate-own-search">Own library only</label>
                     </div>
+                    
                 </div>
-                <div class="search-bar-overlay" id="search-overlay"></div>
+                
                 <div class="search-bar-btn">
 
                 </div>
-                <div class="search-bar-filter">
-                    <input type="checkbox" id="activate-own-search" class="checkbox-filter" checked>
-                    <label for="activate-own-search">Only look in own clauses</label>
-                    <input type="checkbox" class="checkbox-filter" id="private-repo-check" checked>
-                    <label for="activate-own-search">Work in private mode (this will save your clauses in a private place)</label>
-                </div>
+                <div class="search-bar-overlay" id="search-overlay"></div>
             </div>
-           
         </div>
         <div class="result-body">
             <div style="display:none;"><input type="text" id="clause-id"></div>
@@ -50,10 +51,12 @@
         </div>
     </div>
     <div class="site-sidebar">
-        <div class="site-sidebar-filters">
-
-        </div>
+        
         <div class="site-sidebar-buttons">
+            <div class="site-sidebar-filters">
+                <input type="checkbox" class="checkbox-filter switch switch-orange" id="private-repo-check" checked>
+                <label for="activate-own-search">Keep private</label>
+            </div>
             <div class="site-sidebar-buttons-btn" id="save-as-new">
                 <div class="site-sidebar-buttons-btn--icon">
                     <img height="25px" src="{{url_for('static',filename='images/plus-circle-outline.svg')}}" class="sidebar-icon" />
